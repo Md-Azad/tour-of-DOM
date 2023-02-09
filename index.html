@@ -6,5 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <h1 id="title">default text</h1>
+    <button id="clickMe">click me.</button>
+
+    <!-- Tour cost calculation -->
+
+    <label for="bus"> Bus Fare</label>
+    <input id="bus-fare" type="number" /> <br /><br /><br />
+    <label for="train"> train Fare</label>
+    <input id="train-fare" type="number" /><br /><br /><br />
+    <label for="food"> Bus Fare</label>
+    <input id="food-cost" type="number" />
+    <p id="total-display">hello</p>
+
+    <button id="total-cost">total</button>
+
+    <script>
+      document.getElementById("clickMe").addEventListener("click", function () {
+        const targetText = document.getElementById("title");
+        targetText.innerText = "I was clicked by you.";
+
+        targetText.style.backgroundColor = "pink";
+      });
+
+      document
+        .getElementById("total-cost")
+        .addEventListener("click", function () {
+          //   console.log("hello");
+          const busFare = document.getElementById("bus-fare").value;
+          const trainFare = document.getElementById("train-fare").value;
+          const foodCost = document.getElementById("food-cost").value;
+
+          const total =
+            parseInt(busFare) + parseInt(trainFare) + parseInt(foodCost);
+          const totalPlace = document.getElementById("total-display");
+          totalPlace.innerText = `total cost is ${total}.`;
+        });
+    </script>
+  </body>
 </html>
