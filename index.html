@@ -22,27 +22,103 @@
 
     <button id="total-cost">total</button>
 
-    <script>
-      document.getElementById("clickMe").addEventListener("click", function () {
-        const targetText = document.getElementById("title");
-        targetText.innerText = "I was clicked by you.";
+    <h1>Customer feedback.</h1>
 
-        targetText.style.backgroundColor = "pink";
+    <div id="comment-container">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem
+        error laborum suscipit dolore perspiciatis assumenda, quidem architecto
+        quia, aspernatur perferendis hic eaque pariatur accusantium expedita
+        maiores sequi qui veritatis excepturi.
+      </p>
+
+      <p>
+        Voluptas totam quam fugiat voluptate consequatur nihil quis iste
+        officiis tenetur ducimus sapiente assumenda, ut eius voluptatem
+        voluptatum nesciunt dolore voluptatibus debitis repellendus
+        exercitationem magnam consectetur quaerat aut. Quidem, incidunt!
+      </p>
+
+      <p>
+        Quas deleniti alias suscipit inventore veritatis fugiat facere deserunt,
+        earum, rem quia ducimus vero dolorem veniam esse praesentium enim quasi
+        saepe totam? Molestiae omnis officiis nam nulla, esse praesentium optio.
+      </p>
+    </div>
+
+    <div>
+      <textarea name="" id="comments" cols="60" rows="10"></textarea><br />
+      <button id="post">Post</button>
+    </div>
+
+    <!-- Github delete system  -->
+
+    <label id="delete-info">Are you sure to delete this comment.</label> <br />
+    <input id="input-text" type="text" placeholder="Type delete here." />
+    <button id="delete-btn" disabled>delete</button>
+    <!-- onkeyup="myFunction()"  -->
+
+    <!-- Event deligate exploring -->
+
+    <h1>Event delegate</h1>
+    <ul id="list-container">
+      <li class="item">Lorem, ipsum dolor.</li>
+      <li class="item">Quisquam, assumenda. In.</li>
+      <li class="item">Ipsam, libero voluptates!</li>
+      <li class="item">Qui, doloremque ullam.</li>
+      <li class="item">Ipsum, totam earum!</li>
+      <li class="item">Atque, minima sit.</li>
+    </ul>
+    <button id="btn-add">add</button>
+
+    <script>
+      document
+        .getElementById("list-container")
+        .addEventListener("click", function (event) {
+          event.target.parentNode.removeChild(event.target);
+        });
+      document.getElementById("btn-add").addEventListener("click", function () {
+        const addItem = document.getElementById("list-container");
+        const newItem = document.createElement("li");
+        newItem.innerText = "new Item added";
+        addItem.appendChild(newItem);
       });
 
-      document
-        .getElementById("total-cost")
-        .addEventListener("click", function () {
-          //   console.log("hello");
-          const busFare = document.getElementById("bus-fare").value;
-          const trainFare = document.getElementById("train-fare").value;
-          const foodCost = document.getElementById("food-cost").value;
+      // document
+      //   .getElementById("input-text")
+      //   .addEventListener("keyup", function (event) {
+      //     console.log(event.target.value);
+      //   });
 
-          const total =
-            parseInt(busFare) + parseInt(trainFare) + parseInt(foodCost);
-          const totalPlace = document.getElementById("total-display");
-          totalPlace.innerText = `total cost is ${total}.`;
-        });
+      // if (inputText === "delete") {
+      //   const target = document.getElementById("delete-btn");
+      //   target.removeAttribute("disabled", false);
+      // } else {
+      //   target.setAttribute("disabled", true);
+      // }
+
+      // document.getElementById("clickMe").addEventListener("click", function () {
+      //   const targetText = document.getElementById("title");
+      //   targetText.innerText = "I was clicked by you.";
+
+      //   targetText.style.backgroundColor = "pink";
+      // });
+
+      // document
+      //   .getElementById("total-cost")
+      //   .addEventListener("click", function () {
+      //     //   console.log("hello");
+      //     const busFare = document.getElementById("bus-fare").value;
+      //     const trainFare = document.getElementById("train-fare").value;
+      //     const foodCost = document.getElementById("food-cost").value;
+
+      //     const total =
+      //       parseInt(busFare) + parseInt(trainFare) + parseInt(foodCost);
+      //     const totalPlace = document.getElementById("total-display");
+      //     totalPlace.innerText = `total cost is ${total}.`;
+      //   });
     </script>
+
+    <script src="index.js"></script>
   </body>
 </html>
